@@ -7,14 +7,7 @@ src="http://maps.googleapis.com/maps/api/js">
 
 <script type='text/javascript'>
 <?php
-<<<<<<< HEAD
-     //include 'admincheck.php';
-      //require_once 'admincheck.php';
      require_once __DIR__ . '/db_connect.php';
-     
-=======
-     require_once __DIR__ . '/db_connect.php';
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
      $db = new DB_CONNECT();
      $result1 = mysql_query("SELECT id,lat,lng FROM coach") or die(mysql_error());
      $latitude=array();
@@ -26,11 +19,7 @@ src="http://maps.googleapis.com/maps/api/js">
         array_push($longitude,$row1['lng']);
         array_push($id,$row1['id']);
      }
-<<<<<<< HEAD
-    $lat = json_encode($latitude);
-=======
      $lat = json_encode($latitude);
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
     $lng = json_encode($longitude);
     $id=json_encode($id);
 echo "var latitudes = ". $lat . ";\n";
@@ -46,11 +35,7 @@ function initialize()
 
 var mapProp = {
   center:myCenter,
-<<<<<<< HEAD
-  zoom:10,
-=======
   zoom:6,
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 
@@ -71,14 +56,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </head>
 
 <body>
-<<<<<<< HEAD
-<div id="googleMap" style="width:1000px;height:500px;"></div>
-<form action=logout.php>
-    <input type='submit' value='logout'>
-    </form>
-=======
 <div id="googleMap" style="width:500px;height:380px;"></div>
 
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
 </body>
 </html>

@@ -1,32 +1,19 @@
 <html>
   <head>
-<<<<<<< HEAD
-	<title>data addition page</title>
-=======
 	<title>response check page</title>
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
   </head>
   <body> 
 	<?php
 	 require_once __DIR__ . '/db_connect.php';
-<<<<<<< HEAD
-     require_once 'admincheck.php';
-=======
     
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
     $db = new DB_CONNECT();
 	
 	$id		=$_POST['id'];
 	$name   =$_POST['name'];
 	$phone	=$_POST['phone'];
 	$loc	=$_POST['loc'];
-<<<<<<< HEAD
-	$lat    =$_COOKIE['cityLat'];
-	$lng	=$_COOKIE['cityLng']; 
-=======
 	$lat    =$_POST['cityLat'];
 	$lng	=$_POST['cityLng']; 
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
 	$email	=$_POST['email'];
 	if(isset($_POST['gender'])){
 		if($_POST['gender']=='male')
@@ -43,23 +30,6 @@ if($result)
 		<input type='submit' value='add more'>
 		</form>";
 	print "<form action=trainers.php>
-<<<<<<< HEAD
-		<input type='submit' value='view'>
-		</form>";
-}
-else
-	print $lng."<h2>error</h2>";
-
-?> 
-
-<form action=logout.php>
-    <input type='submit' value='logout'>
-    </form>
-  </body>
-</html
-
- 
-=======
 		<input type='submit' value='view map'>
 		</form>";
 }
@@ -72,4 +42,3 @@ else
 </html
 
  
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
