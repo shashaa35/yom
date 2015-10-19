@@ -1,0 +1,35 @@
+<html>
+  <head>
+	<title>Password test, page 2</title>
+  <head>
+
+
+  <body>
+
+	<?php 
+		 $name  = $_POST['realname'];
+		 $pass  = $_POST['mypassword']; 
+		$myfile="password.txt";
+		$fh=fopen($myfile,'r');
+		$data=fgets($fh);
+		fclose($fh);
+		$text=explode(":",$data);
+		//echo $text[0],"-",$text[1],"-",$pass,"-",$name;
+	//	print "<br>";
+		if($pass===$text[1] && $name===$text[0]  )
+			echo "aaja bhai";
+		else
+			echo "bhak bc";
+	//<!--<p> html is also working</p>-->
+
+$db = mysql_connect('localhost','root','') or die('Unable to connect. Check your connection ');
+mysql_select_db('users',$db) or die(mysql_error($db));
+$query = 'insert into details values ("'.$name.'","'.$pass.'")';
+//print $query;
+mysql_query($query,$db) or die(mysql_error($db));
+echo "ho gaya sign up!! ";
+
+?>
+
+  </body>
+</html
