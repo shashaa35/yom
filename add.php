@@ -1,32 +1,26 @@
 <html>
   <head>
-<<<<<<< HEAD
 	<title>data addition page</title>
-=======
-	<title>response check page</title>
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.min.js"></script>
   </head>
   <body> 
+  <div class="text-right">
+      <a href="logout.php" class="btn btn-danger">Log Out</a>
+      </div>
 	<?php
 	 require_once __DIR__ . '/db_connect.php';
-<<<<<<< HEAD
      require_once 'admincheck.php';
-=======
-    
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
     $db = new DB_CONNECT();
 	
 	$id		=$_POST['id'];
 	$name   =$_POST['name'];
 	$phone	=$_POST['phone'];
 	$loc	=$_POST['loc'];
-<<<<<<< HEAD
 	$lat    =$_COOKIE['cityLat'];
 	$lng	=$_COOKIE['cityLng']; 
-=======
-	$lat    =$_POST['cityLat'];
-	$lng	=$_POST['cityLng']; 
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
 	$email	=$_POST['email'];
 	if(isset($_POST['gender'])){
 		if($_POST['gender']=='male')
@@ -34,42 +28,20 @@
 		else
 			$gender='female';
 	} 
-$result = mysql_query("INSERT INTO coach VALUES('$id','$name', '$phone','$gender','$loc','$lat','$lng','$email')");
+$result = mysql_query("INSERT INTO coach VALUES('$id','$name', '$phone','$gender','$loc','$lat','$lng','$email')")or die(print "<br>".mysql_error());
 
 if($result)
 {
-	print "<h2>data has been added </h2>";
-	print "<form action=response.php>
-		<input type='submit' value='add more'>
-		</form>";
-	print "<form action=trainers.php>
-<<<<<<< HEAD
-		<input type='submit' value='view'>
-		</form>";
+	
+	print "<div class='alert alert-success'>
+  <strong>Success!</strong> Data has been successfully Added.</div>";
+	print "<div class='btn-group-vertical'>
+			<a href='response.php' class='btn btn-info'>Add more</a>
+			<a href='trainers.php' class='btn btn-success'>View</a></div>";
 }
 else
-	print $lng."<h2>error</h2>";
+	print "<div class='alert alert-danger'>ERROR</div>";
 
 ?> 
-
-<form action=logout.php>
-    <input type='submit' value='logout'>
-    </form>
   </body>
 </html
-
- 
-=======
-		<input type='submit' value='view map'>
-		</form>";
-}
-else
-	print $loc."<h2>error</h2>";
-
-?> 
-
-  </body>
-</html
-
- 
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb

@@ -2,8 +2,6 @@
 		session_start();
 		$name=$_SESSION['name'];
 		$pass=$_SESSION['pass'];
-		echo "session working<br>";
-
 		$myfile="password.txt";
 		$fh=fopen($myfile,'r');
 		$data=fgets($fh);
@@ -11,7 +9,7 @@
 		$text=explode(":",$data);
 
 		if($pass===$text[1] && $name===$text[0]  )
-			echo "<b>Welcome Shashank</b>";
+			echo "<b><h1 class='text-center'>Welcome Shashank</b>";
 		else
 			{
 				echo "You dont have this access" ;

@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script
-src="http://maps.googleapis.com/maps/api/js">
-</script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.min.js"></script>
+
 
 <script type='text/javascript'>
 <?php
-<<<<<<< HEAD
-     //include 'admincheck.php';
-      //require_once 'admincheck.php';
-     require_once __DIR__ . '/db_connect.php';
+       
+      require_once __DIR__ .'/db_connect.php';
      
-=======
-     require_once __DIR__ . '/db_connect.php';
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
      $db = new DB_CONNECT();
      $result1 = mysql_query("SELECT id,lat,lng FROM coach") or die(mysql_error());
      $latitude=array();
@@ -26,36 +24,31 @@ src="http://maps.googleapis.com/maps/api/js">
         array_push($longitude,$row1['lng']);
         array_push($id,$row1['id']);
      }
-<<<<<<< HEAD
     $lat = json_encode($latitude);
-=======
-     $lat = json_encode($latitude);
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
     $lng = json_encode($longitude);
     $id=json_encode($id);
-echo "var latitudes = ". $lat . ";\n";
-echo "var longitudes = ". $lng. ";\n";
-echo "var ids = ". $id. ";\n";
+echo "var latitudes = ". $lat .";\n";
+echo "var longitudes = ". $lng.";\n";
+echo "var ids = ". $id.";\n";
+
 ?>
 </script>
-
+<?php require_once 'admincheck.php';?>
 <script >
-var myCenter=new google.maps.LatLng(latitudes[2],longitudes[2]);
+
+var len=latitudes.length;
+var myCenter=new google.maps.LatLng(latitudes[len-1],longitudes[len-1]);
 function initialize()
 {
 
 var mapProp = {
   center:myCenter,
-<<<<<<< HEAD
-  zoom:10,
-=======
   zoom:6,
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-var len=latitudes.length;
+
 while(len>=0)
 {
 var marker=new google.maps.Marker({
@@ -71,14 +64,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </head>
 
 <body>
-<<<<<<< HEAD
-<div id="googleMap" style="width:1000px;height:500px;"></div>
-<form action=logout.php>
-    <input type='submit' value='logout'>
-    </form>
-=======
-<div id="googleMap" style="width:500px;height:380px;"></div>
+<div class="text-right">
+      <a href="logout.php" class="btn btn-danger">Log Out</a>
+      </div>
+<div id="googleMap" class="img-circle text-center" style="width:1000px;height:500px;"></div>
 
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb
 </body>
 </html>

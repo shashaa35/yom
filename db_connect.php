@@ -32,9 +32,3 @@ class DB_CONNECT {
         mysql_close();
     }
 }
-
-<<<<<<< HEAD
-?>
-=======
-?>
->>>>>>> 310dfecae8c3d125b98fae5f97a5a686a84d68cb

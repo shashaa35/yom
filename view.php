@@ -13,14 +13,8 @@
 
  */
 	 require_once __DIR__ . '/db_connect.php';
+    require_once 'admincheck.php';     
      
-session_start();
-
-    if($_SESSION['name']==NULL)
-        header('Location: index.php');
-     $name1=$_SESSION['name'];
-     $namec=$_COOKIE['name'];
-     echo "hello $namec";
     $db = new DB_CONNECT();
 
     

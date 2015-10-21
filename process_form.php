@@ -1,8 +1,14 @@
 <html>
   <head>
 	<title>process_form</title>
-  <head>
+		<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.min.js"></script>
+  </head>
   <body>
+  <div class="text-right">
+	    <a href="logout.php" class="btn btn-danger">Log Out</a>
 	<?php 
 		 $name  = $_POST['realname'];
 		 $pass  = $_POST['mypassword'];
@@ -14,7 +20,7 @@
 		$text=explode(":",$data);
 		$pass=$pass."\n";
 		if($pass===$text[1] && $name===$text[0]  )
-		{	echo "<b><h1>Welcome Shashank</b>";
+		{	echo "<b><h1 class='text-center'>Welcome Shashank</b>";
 			session_start();
 			$_SESSION['name']=$name;
 			$_SESSION['pass']=$pass;
@@ -25,17 +31,12 @@
 				header ("Location: /password_test");
 			}
 	?>
-
-<form action=response.php>
-    <input type="submit" name="add" value="press to add new details!!"/>
-</form>
-<form action=trainers.php>
-    <input type="submit" name="view" value="press to view the trainers!!"/>
-</form>    
-
-<form action=logout.php>
-    <input type='submit' value='logout'>
-    </form>
+	</div>
+	<br>
+<div class="btn-group-vertical">
+  <a href="response.php" class="btn btn-info">press to add new details!!</a>
+  <a href="trainers.php" class="btn btn-success">press to view the trainers!!</a>
+</div>
 
   </body>
 </html>
