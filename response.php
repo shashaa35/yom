@@ -29,7 +29,8 @@ require 'admincheck.php';
   <div class="text-right">
       <a href="logout.php" class="btn btn-danger">Log Out</a>
       </div>
-	<form class="form-horizontal " ACTION=add.php role="form" method=POST>
+	
+  <form class="form-horizontal " ACTION=add.php role="form" method=POST enctype="multipart/form-data">
     <div class="form-group ">
       <label class="control-label col-sm-2" >id:</label>
       <div class="col-sm-5 ">
@@ -63,6 +64,12 @@ require 'admincheck.php';
     <label class="control-label col-sm-2" >location:</label>
       <div class="col-sm-5 ">
         <input id="searchTextField" type="text" class="form-control" name="loc">
+      </div>
+    </div>
+    <div class="form-group ">
+    <label class="control-label col-sm-2" >Select image to upload:</label>
+      <div class="col-sm-5 ">
+        <input  type="file" class="form-control" name="imageUpload">
       </div>
     </div>
     <div class="form-group"> 

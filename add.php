@@ -28,7 +28,15 @@
 		else
 			$gender='female';
 	} 
-$result = mysql_query("INSERT INTO coach VALUES('$id','$name', '$phone','$gender','$loc','$lat','$lng','$email')")or die(print "<br>".mysql_error());
+	$target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    if (!move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
+       print "<div class='alert alert-danger'>ERROR UPLOADING FILE</div>";
+       }
+    $image=basename( $_FILES["imageUpload"]["name"],".jpg"); // used to store the filename in a variable
+
+$result = mysql_query("INSERT INTO coach VALUES('$id','$name', '$phone','$gender','$loc','$lat','$lng','$email','$image')")or die(print "<br>".mysql_error());
 
 if($result)
 {
